@@ -6,9 +6,11 @@
 
 <style>
   .title {
+    position: sticky;
+    top: 0;
     color: white;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 2.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
   }
 
   .title-container {
