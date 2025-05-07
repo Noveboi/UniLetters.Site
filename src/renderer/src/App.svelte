@@ -1,10 +1,33 @@
-<script>
+<script lang="ts">
+  import Table from './components/Table.svelte'
   import Title from './components/Title.svelte'
+
+  type Student = { 
+    fullName: string,
+    id: string,
+    average: number
+  }
+
+  const columns = ['Full Name', 'AM', 'MO']
+  const people: Student[] = [
+    {fullName: "Mary Dimi", id: "p21028", average: 9.8},
+    {fullName: "George Niko", id: "p21115", average: 9.7}
+  ]
+
+  function onRowClicked(student: Student) {
+    console.log('Click!!!!', student)
+  } 
+
 </script>
 
-<div class="background">
-  <Title message="Uni Letters" />
+<div class="background"></div>
+
+<Title message="Uni Letters" />
+
+<div style="margin-top: 220px">
+  <Table tableData={people} columnNames={columns} onRowClick={onRowClicked}/>
 </div>
+
 
 <style>
   :global(html, body) {
