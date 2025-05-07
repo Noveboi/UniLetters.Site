@@ -2,12 +2,6 @@
   import Table from './components/Table.svelte'
   import Title from './components/Title.svelte'
 
-  type Student = { 
-    fullName: string,
-    id: string,
-    average: number
-  }
-
   const columns = ['Full Name', 'AM', 'MO']
   const people: Student[] = [
     {fullName: "Mary Dimi", id: "p21028", average: 9.8},
