@@ -12,6 +12,10 @@
     console.log('Click!!!!', student)
   } 
 
+  function showHoverTitle(student: Student) {
+    return `Click to view ${student.fullName}'s profile.`
+  }
+
 </script>
 
 <div class="background"></div>
@@ -19,7 +23,11 @@
 <Title message="Uni Letters" />
 
 <div style="margin-top: 220px">
-  <Table tableData={people} columnNames={columns} onRowClick={onRowClicked}/>
+  <Table 
+    tableData={people} 
+    columnNames={columns} 
+    onRowClick={onRowClicked}
+    titleSelector={showHoverTitle}/>
 </div>
 
 
