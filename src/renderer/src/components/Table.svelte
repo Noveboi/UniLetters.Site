@@ -5,29 +5,45 @@
         onRowClick: (item: T) => void
     }
 
-    const {tableData, columnNames, onRowClick}: TableProps<T> = $props();
+    import '@fontsource/gloria-hallelujah'
 
+    const {tableData, columnNames, onRowClick}: TableProps<T> = $props();
 </script>
 
-<table class="redTable">
-  <thead>
-    <tr>
-      {#each columnNames as columnHeading}
-        <th>{columnHeading}</th>
-      {/each}
-  </thead>
-  <tbody>
-    {#each Object.values(tableData) as row}
-      <tr onclick={() => onRowClick(row)}>
-        {#each Object.values(row) as cell}
-          <td>{cell}</td>
+<div class="center-table">
+  <table class="listTable">
+    <thead>
+      <tr>
+        {#each columnNames as columnHeading}
+          <th>{columnHeading}</th>
         {/each}
-      </tr>
-    {/each}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {#each tableData as row}
+        <tr onclick={() => onRowClick(row)}>
+          {#each Object.values(row) as cell}
+            <td>{cell}</td>
+          {/each}
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+</div>
 
 <style>
+  :root {
+    --purple: #7E42D8;
+    --blue: #5EA4FF;
+    --green: #77F26F;
+    --orange: #FF853A;
+    --turqoise: #50F3A4;
+  }
+
+  .center-table {
+    display: flex;
+    justify-content: center;
+  }
+
   table,
   th,
   td {
@@ -36,41 +52,38 @@
     margin-bottom: 10px;
   }
 
-  table.redTable {
-    border: 2px solid #a40808;
-    background-color: #eee7db;
-    width: 100%;
+  table.listTable {
+    border: 3px solid black;
+    background-color: white;
+    width: 90%;
+    font-family: 'Gloria Hallelujah', cursive;
     text-align: center;
     border-collapse: collapse;
+    overflow-y: auto;
   }
-  table.redTable td,
-  table.redTable th {
-    border: 1px solid #aaaaaa;
+  table.listTable td,
+  table.listTable th {
+    border: 2px solid black;
     padding: 3px 2px;
   }
-  table.redTable tbody td {
-    font-size: 13px;
+  table.listTable tbody td {
+    font-size: 20px;
   }
-  table.redTable tr:nth-child(even) {
-    background: #f5c8bf;
+  table.listTable thead {
+    background: var(--purple);
   }
-  table.redTable thead {
-    background: #a40808;
-    background: -moz-linear-gradient(top, #bb4646 0%, #ad2020 66%, #a40808 100%);
-    background: -webkit-linear-gradient(top, #bb4646 0%, #ad2020 66%, #a40808 100%);
-    background: linear-gradient(to bottom, #bb4646 0%, #ad2020 66%, #a40808 100%);
-  }
-  table.redTable thead th {
+  table.listTable thead th {
     font-size: 19px;
     font-weight: bold;
-    color: #ffffff;
+    color: white;
     text-align: center;
-    border-left: 2px solid #a40808;
   }
-  table.redTable thead th:first-child {
+  table.listTable thead th:first-child {
     border-left: none;
   }
-
-/* hover  */
+  table.listTable tbody tr :hover {
+    background-color: var(--blue);
+    cursor: pointer;
+  }
 
 </style>

@@ -1,4 +1,6 @@
 <script>
+  import '@fontsource/patrick-hand-sc'
+
   const { message } = $props()
 </script>
 
@@ -9,8 +11,8 @@
     position: sticky;
     top: 0;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 3rem;
   }
 
   .title-container {
