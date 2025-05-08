@@ -2,12 +2,13 @@
     interface TableProps<T> {
         columnNames: string[]
         tableData: T[],
-        onRowClick: (item: T) => void
+        onRowClick: (item: T) => void,
+        titleSelector?: (item: T) => string
     }
 
     import '@fontsource/gloria-hallelujah'
 
-    const {tableData, columnNames, onRowClick}: TableProps<T> = $props();
+    const {tableData, columnNames, onRowClick, titleSelector}: TableProps<T> = $props();
 </script>
 
 <div class="center-table">
@@ -20,7 +21,7 @@
     </thead>
     <tbody>
       {#each tableData as row}
-        <tr onclick={() => onRowClick(row)}>
+        <tr onclick={() => onRowClick(row)} title={titleSelector?.(row)}>
           {#each Object.values(row) as cell}
             <td>{cell}</td>
           {/each}
@@ -81,7 +82,7 @@
   table.listTable thead th:first-child {
     border-left: none;
   }
-  table.listTable tbody tr :hover {
+  table.listTable tbody tr:hover {
     background-color: var(--blue);
     cursor: pointer;
   }
