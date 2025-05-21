@@ -4,8 +4,10 @@
 
   const columns = ['Full Name', 'AM', 'MO']
   const people: Student[] = [
-    {fullName: "Mary Dimi", id: "p21028", average: 9.8},
-    {fullName: "George Niko", id: "p21115", average: 9.7}
+    {fullName: "Mary Dimi", id: "p21028", average: 9.9},
+    {fullName: "George Niko", id: "p21115", average: 3.2},
+    {fullName: "Kon Sklav", id: "p21151", average: 5}
+
   ]
 
   function onRowClicked(student: Student) {
