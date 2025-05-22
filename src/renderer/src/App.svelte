@@ -1,6 +1,5 @@
 <script lang="ts">
   import Button from './components/Button.svelte'
-  import StudentTable from './components/StudentTable.svelte'
   import SubTitle from './components/SubTitle.svelte'
   import Table from './components/Table.svelte'
   import Title from './components/Title.svelte'
@@ -17,15 +16,19 @@
     console.log('Click!!!!', student)
   } 
 
+  function onSubjectClicked(subject: Subject) {
+    console.log('Click', subject);
+  }
+
   function showHoverTitle(student: Student) {
     return `Click to view ${student.fullName}'s profile.`
   }
 
 // 2nd table
-const subjects = ['Subject', 'SubjectCode', 'Semester', 'Grade']
+const subjects = ['Subject', 'Code', 'Semester', 'Grade']
   const subject: Subject[] = [
-    {subject: "Analisi 1", subjectCode: "123456", semester: 1, grade: "7"},
-    {subject: "Technologia Logismikou", subjectCode: "654321", semester: 6, grade: "10"}
+    {name: "Analisi 1", code: "123456", semester: 1, grade: 7},
+    {name: "Technologia Logismikou", code: "654321", semester: 6, grade: 10}
   ]
 
 // button
@@ -50,16 +53,16 @@ const subjects = ['Subject', 'SubjectCode', 'Semester', 'Grade']
 <SubTitle message="Profile" />
 
 <div class="button-container">
-  <Button on:click={handleClick}>
+  <Button className="btn" onClick={handleClick}>
     Letter
   </Button>
 </div>
 
 <div style="margin-top: 20px">
-  <StudentTable 
+  <Table 
     tableData={subject} 
     columnNames={subjects} 
-    onRowClick={onRowClicked}/>
+    onRowClick={onSubjectClicked}/>
 </div>
 
 <style>

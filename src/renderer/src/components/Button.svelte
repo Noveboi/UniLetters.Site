@@ -1,15 +1,19 @@
-<script>
-  export let type = "button";
-  export let onClick = () => {};
-  export let className = "";
+<script lang="ts">
+  interface ButtonProps {
+    onClick: () => void,
+    className: string,
+    children: any
+  }
+
+  const { onClick, className, children }: ButtonProps = $props()
 </script>
 
-<button type={type} on:click={onClick} class={className}>
-  <slot /> 
+<button type="button" onclick={onClick} class={className}>
+  {@render children()}
 </button>
 
 <style>
-    :root {
+  :root {
     --orange: #FF853A;
     --bold-orange: #EB5E07;
     --turqoise: #50F3A4;
@@ -27,6 +31,6 @@
   }
 
   button:hover {
-    background-color: (--bold-orange);
+    background-color: var(--bold-orange);
   }
 </style>
