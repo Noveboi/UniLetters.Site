@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Button from './components/Button.svelte'
+  import StudentTable from './components/StudentTable.svelte'
+  import SubTitle from './components/SubTitle.svelte'
   import Table from './components/Table.svelte'
   import Title from './components/Title.svelte'
 
@@ -18,6 +21,18 @@
     return `Click to view ${student.fullName}'s profile.`
   }
 
+// 2nd table
+const subjects = ['Subject', 'SubjectCode', 'Semester', 'Grade']
+  const subject: Subject[] = [
+    {subject: "Analisi 1", subjectCode: "123456", semester: 1, grade: "7"},
+    {subject: "Technologia Logismikou", subjectCode: "654321", semester: 6, grade: "10"}
+  ]
+
+// button
+ function handleClick() {
+    alert("Button clicked!");
+  }
+
 </script>
 
 <div class="background"></div>
@@ -32,6 +47,20 @@
     titleSelector={showHoverTitle}/>
 </div>
 
+<SubTitle message="Profile" />
+
+<div class="button-container">
+  <Button on:click={handleClick}>
+    Letter
+  </Button>
+</div>
+
+<div style="margin-top: 20px">
+  <StudentTable 
+    tableData={subject} 
+    columnNames={subjects} 
+    onRowClick={onRowClicked}/>
+</div>
 
 <style>
   :global(html, body) {
@@ -53,5 +82,11 @@
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: end;
+    margin-right: 5rem;
   }
 </style>
