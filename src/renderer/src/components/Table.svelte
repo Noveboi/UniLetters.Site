@@ -35,9 +35,6 @@
   :root {
     --purple: #7E42D8;
     --blue: #5EA4FF;
-    --green: #77F26F;
-    --orange: #FF853A;
-    --turqoise: #50F3A4;
   }
 
   .center-table {
