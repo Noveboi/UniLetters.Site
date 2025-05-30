@@ -30,7 +30,6 @@
     titleSelector={showHoverTitle}/>
 </div>
 
-
 <style>
   :global(html, body) {
     display: block;
