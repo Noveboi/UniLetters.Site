@@ -2,14 +2,27 @@
     interface TableProps<T> {
         columnNames: string[]
         tableData: T[],
-        onRowClick?: (item: T) => void,
-        titleSelector?: (item: T) => string
+        rowClick?: (item: T) => void,
+        hint?: (item: T) => string,
+        rowLink?: (item: T) => string,
     }
 
     import '@fontsource/gloria-hallelujah'
 
-    const {tableData, columnNames, onRowClick, titleSelector}: TableProps<T> = $props();
+    const {tableData, columnNames, rowClick, hint, rowLink}: TableProps<T> = $props();
 </script>
+
+{#snippet row(link: string | undefined, item: T)}
+  {#if link}
+    {#each Object.values(item) as cell}
+      <td> <a href="{link}">{cell}</a> </td>
+    {/each}
+  {:else}
+    {#each Object.values(item) as cell}
+      <td>{cell}</td>
+    {/each}
+  {/if}
+{/snippet}
 
 <div class="center-table">
   <table class="listTable">
@@ -21,11 +34,9 @@
       </tr>
     </thead>
     <tbody>
-      {#each tableData as row}
-        <tr onclick={() => onRowClick?.(row)} title={titleSelector?.(row)}>
-          {#each Object.values(row) as cell}
-            <td>{cell}</td>
-          {/each}
+      {#each tableData as item}
+        <tr onclick={() => rowClick?.(item)} title={hint?.(item)}>
+          {@render row(rowLink?.(item), item)}
         </tr>
       {/each}
     </tbody>
@@ -33,6 +44,10 @@
 </div>
 
 <style>
+  a {
+    all: unset;
+  }
+
   :root {
     --purple: #7E42D8;
     --blue: #5EA4FF;
@@ -80,6 +95,7 @@
   table.listTable thead th:first-child {
     border-left: none;
   }
+
   table.listTable tbody tr:hover {
     background-color: var(--blue);
     cursor: pointer;

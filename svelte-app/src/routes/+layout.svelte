@@ -1,8 +1,6 @@
 <script lang="ts">
-  import Title from '$lib/components/Title.svelte';
-
-    export const prerender = false;
-    export const ssr = false;
+    import Title from '$lib/components/Title.svelte';
+    import '../global.css'
 
     const { children } = $props();
 </script>
