@@ -15,7 +15,7 @@
 {#snippet row(link: string | undefined, item: T)}
   {#if link}
     {#each Object.values(item) as cell}
-      <td> <a href="{link}">{cell}</a> </td>
+      <td class="link"> <a href="{link}">{cell}</a> </td>
     {/each}
   {:else}
     {#each Object.values(item) as cell}
@@ -43,7 +43,7 @@
   </table>
 </div>
 
-<style>
+<style lang="scss">
   a {
     all: unset;
   }
@@ -58,9 +58,7 @@
     justify-content: center;
   }
 
-  table,
-  th,
-  td {
+  table, th, td {
     border: 1px solid;
     border-collapse: collapse;
     margin-bottom: 10px;
@@ -74,31 +72,40 @@
     text-align: center;
     border-collapse: collapse;
     overflow-y: auto;
-  }
-  table.listTable td,
-  table.listTable th {
-    border: 2px solid black;
-    padding: 3px 2px;
-  }
-  table.listTable tbody td {
     font-size: 20px;
-  }
-  table.listTable thead {
-    background: var(--purple);
-  }
-  table.listTable thead th {
-    font-size: 19px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-  }
-  table.listTable thead th:first-child {
-    border-left: none;
-  }
 
-  table.listTable tbody tr:hover {
-    background-color: var(--blue);
-    cursor: pointer;
-  }
+    td, th {
+      border: 2px solid black;
+    }
 
+    td {
+      &:not(.link) {
+        color: red;
+      }
+
+      &.link {
+        margin: 0;
+        padding: 0;
+      }
+
+      > a {
+        display: block;
+        width: 100%;
+        padding: 3px 2px;
+      }
+    }
+
+    thead {
+      background-color: var(--purple);
+      font-size: 19px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+
+    tbody tr:hover {
+      background-color: var(--blue);
+      cursor: pointer;
+    }
+  }
 </style>
