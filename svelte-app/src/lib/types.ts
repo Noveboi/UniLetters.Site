@@ -4,6 +4,12 @@ type Student = {
     average: number
 }
 
+
+type StudentWithGrades = {
+  student: Student,
+  courses: readonly Course[]
+}
+
 type Course = {
   name: string,
   code: string,
