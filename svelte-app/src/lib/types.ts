@@ -1,10 +1,10 @@
 type Student = { 
     fullName: string,
-    id: string,
+    am: string,
     average: number
 }
 
-type Subject = {
+type Course = {
   name: string,
   code: string,
   semester: number,

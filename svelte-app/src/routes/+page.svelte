@@ -11,6 +11,6 @@
   <Table 
     tableData={data.students} 
     columnNames={columns} 
-    rowLink={student => `/students/${student.id}`}
+    rowLink={student => `/students/${student.am}`}
     hint={student => `Click to view ${student.fullName}'s profile.`}/>
 </div>

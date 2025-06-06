@@ -5,7 +5,7 @@
     import Table from "$lib/components/Table.svelte";
 
     const subjects = ['Subject', 'Code', 'Semester', 'Grade']
-    const subject: Subject[] = [
+    const subject: Course[] = [
         {name: "Analisi 1", code: "123456", semester: 1, grade: 7},
         {name: "Technologia Logismikou", code: "654321", semester: 6, grade: 10}
     ]
