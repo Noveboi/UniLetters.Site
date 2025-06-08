@@ -4,13 +4,12 @@ type Student = {
     average: number
 }
 
-
 type StudentWithGrades = {
   student: Student,
-  courses: readonly Course[]
+  grades: readonly CourseStudentGrade[]
 }
 
-type Course = {
+type CourseStudentGrade = {
   name: string,
   code: string,
   semester: number,
