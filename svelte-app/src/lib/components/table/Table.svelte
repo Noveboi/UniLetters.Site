@@ -1,25 +1,34 @@
 <script lang="ts" generics="T extends {}">
+
     interface TableProps<T> {
-        columnNames: string[]
-        tableData: T[],
+        tableData: readonly T[],
+        definitions: readonly ColDef<T>[],
         rowClick?: (item: T) => void,
         hint?: (item: T) => string,
         rowLink?: (item: T) => string,
     }
 
     import '@fontsource/gloria-hallelujah'
+    import type { ColDef } from './table.types';
 
-    const {tableData, columnNames, rowClick, hint, rowLink}: TableProps<T> = $props();
+    const {tableData, definitions, rowClick, hint, rowLink}: TableProps<T> = $props();
+
+    const getters = $derived(definitions.map(x => x.getter));
+    const headers = $derived(definitions.map(x => x.headerName));
 </script>
 
 {#snippet row(link: string | undefined, item: T)}
   {#if link}
-    {#each Object.values(item) as cell}
-      <td class="link"> <a href="{link}">{cell}</a> </td>
+    {#each getters as getter}
+      <td class="link"> 
+        <a href="{link}">
+          {getter(item)}
+        </a> 
+      </td>
     {/each}
   {:else}
-    {#each Object.values(item) as cell}
-      <td>{cell}</td>
+    {#each getters as getter}
+      <td>{getter(item)}</td>
     {/each}
   {/if}
 {/snippet}
@@ -28,7 +37,7 @@
   <table class="listTable">
     <thead>
       <tr>
-        {#each columnNames as columnHeading}
+          {#each headers as columnHeading}
           <th>{columnHeading}</th>
         {/each}
       </tr>
@@ -79,10 +88,6 @@
     }
 
     td {
-      &:not(.link) {
-        color: red;
-      }
-
       &.link {
         margin: 0;
         padding: 0;
