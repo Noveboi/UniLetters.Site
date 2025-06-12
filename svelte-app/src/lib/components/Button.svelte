@@ -5,6 +5,8 @@
     children: any
   }
 
+  import '@fontsource/gloria-hallelujah'
+
   const { onClick, className, children }: ButtonProps = $props()
 </script>
 
@@ -21,11 +23,14 @@
 
   button {
     padding: 0.5rem 1rem;
-    background-color: (--orange);
+    background-color: var(--orange);
     color: black;
     border: none;
     border-radius: 10px;
+    font-family: 'Gloria Hallelujah', cursive;
     font-size: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }

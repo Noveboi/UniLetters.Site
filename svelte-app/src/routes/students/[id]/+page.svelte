@@ -15,17 +15,19 @@
     const { data }: PageProps = $props();
 </script>
 
-<SubTitle message="Profile" />
+<div style="margin-top: 8rem">
+    <SubTitle message="Profile" />
 
-<div class="button-container">
-  <Navigate to='/students/{data.student.am}/letters'>Letter</Navigate>
-  <Navigate to='/'>Back</Navigate>
-</div>
+    <div class="button-container">
+    <Navigate to='/students/{data.student.am}/letters'>Letter</Navigate>
+    <Navigate to='/'>Back</Navigate>
+    </div>
 
-<div style="margin-top: 20px">
-  <Table 
-    tableData={data.grades} 
-    definitions={colDefs}/>
+    <div>
+    <Table 
+        tableData={data.grades} 
+        definitions={colDefs}/>
+    </div>
 </div>
 
 <style>
