@@ -1,5 +1,6 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
+    import Template from "$lib/components/Template.svelte";
     import type { PageProps } from "./$types";
 
     const { data }: PageProps = $props();
@@ -25,8 +26,12 @@
 </script>   
 
 <div class="templates-container">
-    <Button onClick={getLetter}>Generate (TEMP)</Button>
+    <Template image="temp" onClick={getLetter}></Template>
+    <Template image="temp" onClick={getLetter}></Template>
 </div>
 
 <style>
+    .templates-container {
+        
+    }
 </style>

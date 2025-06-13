@@ -1,16 +1,16 @@
 <script lang="ts">
   type TemplateProps {
-    onClick?: () => void,
-    selected: boolean,
+    onClick: () => void,
+    image: string
   }
 
   import '@fontsource/gloria-hallelujah'
 
-  const { onClick, selected }: TemplateProps = $props()
+  const { onClick, image }: TemplateProps = $props()
 </script>
 
-<button type="button" onclick={onClick} selected="false" class="pdf-template">
-    <img src="" alt="">
+<button type="button" onclick={onClick} class="pdf-template">
+    <img src={image} alt="PDf Template">
 </button>
 
 <style>
