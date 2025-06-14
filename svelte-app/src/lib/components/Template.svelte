@@ -16,15 +16,13 @@
 <style>
     .pdf-template {
         border: 4px solid black;
+        background-color: white;
         border-radius: 10px;
         width: 15rem;
         height: 20rem;
     }
 
     img {
-        background-size: cover; 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
+        width: 100%;
     }
 </style>

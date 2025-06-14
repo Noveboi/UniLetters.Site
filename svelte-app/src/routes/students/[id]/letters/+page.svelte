@@ -32,8 +32,8 @@
 </div>
 
 <div class="templates-container">
-    <Template image="temp" onClick={() => getLetter(1)}></Template>
-    <Template image="temp" onClick={() => getLetter(2)}></Template>
+    <Template image="/images/PDF1.png" onClick={() => getLetter(1)}></Template>
+    <Template image="/images/PDF2.png" onClick={() => getLetter(2)}></Template>
 </div>
 
 <style>
