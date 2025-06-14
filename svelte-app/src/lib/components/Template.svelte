@@ -15,9 +15,10 @@
 
 <style>
     .pdf-template {
-        border: 2px black;
-        width: 40%;
-        height: 60%;
+        border: 4px solid black;
+        border-radius: 10px;
+        width: 15rem;
+        height: 20rem;
     }
 
     img {
