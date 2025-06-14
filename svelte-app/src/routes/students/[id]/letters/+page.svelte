@@ -5,8 +5,8 @@
 
     const { data }: PageProps = $props();
 
-    const getLetter = async () => {
-        const response = await fetch(`/students/${data.student.am}/letters/1`);
+    const getLetter = async (letterId: number) => {
+        const response = await fetch(`/students/${data.student.am}/letters/${letterId}`);
         if (response.ok) {
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
@@ -26,8 +26,8 @@
 </script>   
 
 <div class="templates-container">
-    <Template image="temp" onClick={getLetter}></Template>
-    <Template image="temp" onClick={getLetter}></Template>
+    <Template image="temp" onClick={() => getLetter(1)}></Template>
+    <Template image="temp" onClick={() => getLetter(2)}></Template>
 </div>
 
 <style>
