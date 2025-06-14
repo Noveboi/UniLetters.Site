@@ -1,5 +1,5 @@
 <script lang="ts">
-  type TemplateProps {
+  type TemplateProps = {
     onClick: () => void,
     image: string
   }
@@ -10,7 +10,7 @@
 </script>
 
 <button type="button" onclick={onClick} class="pdf-template">
-    <img src={image} alt="PDf Template">
+    <img src={image} alt="PDF Template">
 </button>
 
 <style>
