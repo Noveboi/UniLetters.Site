@@ -9,7 +9,7 @@
   const { onClick, image }: TemplateProps = $props()
 </script>
 
-<button type="button" onclick={onClick} class="pdf-template">
+<button type="button" onclick={onClick} class="pdf-template" title="Click to download">
     <img src={image} alt="PDF Template">
 </button>
 
@@ -20,6 +20,7 @@
         border-radius: 10px;
         width: 15rem;
         height: 20rem;
+        cursor: pointer;
     }
 
     img {
