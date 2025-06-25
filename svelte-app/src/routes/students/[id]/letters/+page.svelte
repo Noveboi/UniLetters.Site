@@ -1,8 +1,8 @@
 <script lang="ts">
-    import Button from "$lib/components/Button.svelte";
+    import ButtonContainer from "$lib/components/ButtonContainer.svelte";
+    import Navigate from "$lib/components/Navigate.svelte";
     import SubTitle from "$lib/components/SubTitle.svelte";
     import Template from "$lib/components/Template.svelte";
-    import Title from "$lib/components/Title.svelte";
     import type { PageProps } from "./$types";
 
     const { data }: PageProps = $props();
@@ -29,6 +29,9 @@
 
 <div class="sub-margin">
     <SubTitle message="Choose Template:" />
+    <ButtonContainer>
+        <Navigate to="/students/{data.student.am}">Back</Navigate>
+    </ButtonContainer>
 </div>
 
 <div class="templates-container">

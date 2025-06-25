@@ -1,5 +1,6 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
+    import ButtonContainer from "$lib/components/ButtonContainer.svelte";
     import Navigate from "$lib/components/Navigate.svelte";
     import SubTitle from "$lib/components/SubTitle.svelte";
     import Table from "$lib/components/table/Table.svelte";
@@ -18,10 +19,10 @@
 <div style="margin-top: 8rem">
     <SubTitle message="Profile" />
 
-    <div class="button-container">
-    <Navigate to='/students/{data.student.am}/letters'>Letter</Navigate>
-    <Navigate to='/'>Back</Navigate>
-    </div>
+    <ButtonContainer>
+        <Navigate to='/students/{data.student.am}/letters'>Letter</Navigate>
+        <Navigate to='/'>Back</Navigate>
+    </ButtonContainer>
 
     <div>
     <Table 
